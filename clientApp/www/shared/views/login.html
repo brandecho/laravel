@@ -1,0 +1,31 @@
+<ion-view title="LOGIN" hide-nav-bar="true" ng-controller="LoginCtrl">
+    <ion-content padding="true" class="manual-ios-statusbar-padding" scroll="false" style="background: url(img/bg.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+                <h2 class="light">ngLaravel Login</h2>
+                <p class="stable">Sign in with local account</p>
+            </div>
+        </div>
+        <form ng-submit="signin()" role="form" autocomplete="off">
+            <div class="list">
+                <div class="card" ng-if="signinError.data.error">
+                    <div class="item item-text-wrap assertive">
+                        <strong>There was an error: </strong> {{signinError.data.error}}
+                        <br>Please try again
+                    </div>
+                </div>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable">Email</span>
+                    <input ng-model="user.email" type="Email" placeholder="Email" class="login-pl">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label stable">Password</span>
+                    <input ng-model="user.password" type="password" placeholder="Password" class="login-pl">
+                </label>
+            </div>
+            <button type="submit" class="button button-full button-assertive ink">Login</button>
+        </form>
+        <button ui-sref="forget" class="button button-full button-clear button-light">Forgot your password?</button>
+    </ion-content>
+</ion-view>
